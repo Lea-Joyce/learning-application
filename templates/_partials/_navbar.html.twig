@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+  <a class="navbar-brand" href="{{ path('learning_application') }}">ZIFF</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('learning_application') }}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('client_list') }}">Clients</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('course_list') }}">Courses</a>
+      </li>
+    </ul>
+    {#<div>{{app.request.attributes.get('_route')}}</div>#}
+    {% if app.request.attributes.get('_route')=='client_list' %}
+    <form class="form-inline my-2 my-lg-0" action="{{ path('client_search') }}">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="firstname">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Client</button>
+    </form>
+    {% else %}
+    <form class="form-inline my-2 my-lg-0" action="{{ path('course_search') }}">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Course</button>
+    </form>
+    {% endif %}
+  </div>
+</nav>

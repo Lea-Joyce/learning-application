@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Course(s) Registered{% endblock %}
+
+{% block body %}
+<div class="clientcourses">
+<table class="table table-hover" style="width:75%">
+    <tr>
+      <th scope="row">Client's Name</th>
+      <td>{{client.lastName}}, {{client.firstName}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Course(s)</th>
+       {% for course in courses %}
+           <td><b>{{course.title}}:</b> <br> {{course.content}}</td>
+        {% endfor %}
+    </tr>    
+</table>
+</div>
+{% endblock %}

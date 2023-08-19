@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}List of Clients{% endblock %}
+
+{% block body %}
+
+<table class="table table-hover" style="width:100%">
+  <thead>
+    <tr>
+      <th scope="col">Client's Lastname</th>
+      <th scope="col">Client's Firstname</th>
+      <th scope="col">Client's Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for client in clients %}
+         <tr>
+            <td> <i class="bi bi-person-circle"></i> {{ client.lastName }}</td>
+            <td>{{ client.firstName }}</td>
+            <td> <i class="bi bi-info-circle"></i> <a href="{{ path('clientcourse_list', {clientId: client.id}) }}">Details</a></td>
+        </tr>       
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
+
+

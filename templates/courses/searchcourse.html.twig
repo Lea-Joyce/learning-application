@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}List of Courses{% endblock %}
+
+{% block body %}
+<div class="container2">
+<table class="table table-hover" style="width:100%">
+  <thead>
+    <tr>
+      <th scope="col">Course Title</th>
+      <th scope="col">Course Description</th>
+      <th scope="col">Course Information</th>
+    </tr>
+  </thead>
+    {% for course in courses %}
+        <tr>
+            <td><b>{{ course.title }}</b></td>
+            <td>{{ course.content }}</td>
+            <td> <i class="bi bi-info-circle"></i> <a href="{{ path('courseclient_list', {courseId: course.id}) }}">Details</a></td>
+        </tr>
+    {% endfor %}
+     </tbody>
+</table>
+    </div>
+{% endblock %}
