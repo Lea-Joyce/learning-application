@@ -4,8 +4,7 @@
 
 {% block body %}
 <div class="container2">
-{#<p>The training courses are designed in such a way that acquired knowledge can already be implemented on the next working day. In addition, many courses are networked and integrated into various training courses, which are organised as modular systems.
-</p> #}
+
 <table class="table table-hover" style="width:100%">
   <thead>
     <tr>
@@ -14,19 +13,12 @@
       <th scope="col">Course Information</th>
     </tr>
   </thead>
-    {#<div class="container">#}
     {% for course in courses %}
         <tr>
-      {#<th scope="row"></th>#}
             <td><b>{{ course.title }}</b></td>
             <td>{{ course.content }}</td>
             <td> <i class="bi bi-info-circle"></i> <a href="{{ path('courseclient_list', {courseId: course.id}) }}">Details</a></td>
         </tr>
-        {#<div class="course row">
-            <div class="col-md-4">
-                {{ course.title }} - {{ course.content }}
-            </div>
-        </div>#}
     {% endfor %}
      </tbody>
 </table>
